@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -14,14 +15,18 @@ namespace Shop.Management.App.ViewModel
     {
         private readonly EmployeeDataService _employeeDataService = new EmployeeDataService();
         private readonly List<Employee> _employees;
-
+        private readonly DialogService _dialogService;
         private string _password;
         private string _username;
+
+        public Action CloseAction { get; set; }
 
         public LoginViewModel()
         {
             _employees = _employeeDataService.GetAll();
             LoginCommand = new RelayCommand(Login, CanLogin);
+            _dialogService=new DialogService();
+            
         }
 
         public string Username
@@ -65,7 +70,8 @@ namespace Shop.Management.App.ViewModel
             if (accounts.Count() == 1)
             {
                 App.LoggedInEmployee = accounts.FirstOrDefault();
-                Messenger.Default.Send(new LoginMessage());
+                _dialogService.ShowMainWindow();
+                CloseAction();
             }
             else
             {

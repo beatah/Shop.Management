@@ -72,7 +72,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Extensions\ListExtensions.cs" />
-    <Compile Include="Message\LoginMessage.cs" />
     <Compile Include="Message\UpdateListMessage.cs" />
     <Compile Include="Services\CustomerDataService.cs" />
     <Compile Include="Services\DialogService.cs" />

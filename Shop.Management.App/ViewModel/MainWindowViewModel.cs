@@ -9,16 +9,11 @@ namespace Shop.Management.App.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private readonly DialogService _dialogService;
-
         private object _selectedViewModel;
 
         public MainWindowViewModel()
         {
             NavigateCommand = new RelayCommand(Navigate, CanNavigate);
-            _dialogService = new DialogService();
-            Messenger.Default.Register<LoginMessage>(this, OnLoginMessageReceived);
-            _dialogService.ShowLogin();
         }
 
         public string LoggedInEmployee
@@ -45,11 +40,6 @@ namespace Shop.Management.App.ViewModel
             var handler = PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void OnLoginMessageReceived(LoginMessage obj)
-        {
-            _dialogService.CloseLoginDialog();
         }
 
         private bool CanNavigate(object obj)

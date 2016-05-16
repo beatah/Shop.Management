@@ -24,7 +24,10 @@ namespace Shop.Management.App.View
         public LoginView()
         {
             InitializeComponent();
-            this.DataContext = new LoginViewModel();
+            LoginViewModel _loginViewModel = new LoginViewModel();
+            this.DataContext = _loginViewModel;
+            if(_loginViewModel.CloseAction==null)
+                _loginViewModel.CloseAction=new Action(this.Close);
         }
     }
 }

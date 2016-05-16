@@ -9,6 +9,7 @@ namespace Shop.Management.App.Services
         private Window _employeeDetailView;
         private Window _loginView;
         private Window _productView;
+        private Window _mainWindowView;
 
         public void ShowLogin()
         {
@@ -56,6 +57,12 @@ namespace Shop.Management.App.Services
         {
             if (_customerView != null)
                 _customerView.Close();
+        }
+
+        public void ShowMainWindow()
+        {
+            _mainWindowView=new MainWindow();
+            _mainWindowView.Show();
         }
     }
 }
