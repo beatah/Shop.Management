@@ -1,0 +1,41 @@
+﻿<controls:MetroWindow x:Class="Shop.Management.App.View.ProductView"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:local="clr-namespace:Shop.Management.App.View"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      mc:Ignorable="d"
+                      Title="Product" Height="250" Width="325"
+                       DataContext="{Binding Source={StaticResource MainViewModelLocator},  Path=ProductViewModel}">
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label FontWeight="Bold" Grid.Row="0" Content="Name" HorizontalAlignment="Right" />
+            <Label FontWeight="Bold" Grid.Row="1" Content="Quantity" HorizontalAlignment="Right" />
+            <Label FontWeight="Bold" Grid.Row="2" Content="Price" HorizontalAlignment="Right" />
+            <TextBox Grid.Column="1" Margin="3,3,30,3" Text="{Binding SelectedProduct.Name, Mode=TwoWay}" />
+            <TextBox Grid.Column="1" Grid.Row="1" Margin="3,3,30,3"
+                     Text="{Binding SelectedProduct.InStock, Mode=TwoWay}" />
+            <TextBox Grid.Column="1" Grid.Row="2" Margin="3,3,30,3" Text="{Binding SelectedProduct.Price, Mode=TwoWay}" />
+
+            <Button Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="5"
+                    Command="{Binding SaveCommand}" Content="Save Product" />
+
+
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

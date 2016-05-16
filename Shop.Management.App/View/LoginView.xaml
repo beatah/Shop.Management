@@ -1,0 +1,35 @@
+﻿<controls:MetroWindow x:Class="Shop.Management.App.View.LoginView"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      WindowStartupLocation="CenterScreen"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      mc:Ignorable="d"
+                      Title="SIGN IN"
+                      Height="250" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Content="Username" HorizontalAlignment="Right" />
+            <TextBox Grid.Column="1" Margin="3,3,30,3"
+                     Text="{Binding Username, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+            <Label Content="Password" Grid.Row="1" HorizontalAlignment="Right" />
+            <TextBox Name="PbPass" Grid.Row="1" Grid.Column="1" Margin="3,3,30,3"
+                     Text="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Button Grid.Row="1" HorizontalAlignment="Center" Content="Sign in" Margin="10" Padding="15,5"
+                Command="{Binding LoginCommand}" />
+    </Grid>
+</controls:MetroWindow>

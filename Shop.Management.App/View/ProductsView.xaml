@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Shop.Management.App.View.ProductsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Shop.Management.App.View"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d"
+             DataContext="{Binding Source={StaticResource MainViewModelLocator},  Path=ProductsViewModel}">
+    <Grid VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListView ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" Grid.Column="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto"
+                                    DisplayMemberBinding="{Binding Name}"
+                                    Header="Name" />
+                    <GridViewColumn Width="Auto"
+                                    DisplayMemberBinding="{Binding Price}"
+                                    Header="Price" />
+                    <GridViewColumn Width="Auto"
+                                    DisplayMemberBinding="{Binding InStock}"
+                                    Header="Amount in stock" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button Content="Add Product" Margin="5"
+                Padding="30,5" Command="{Binding AddCommand}" />
+            <Button Margin="5" Command="{Binding EditCommand}" Content="Edit Product" Padding="30,5" />
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>
