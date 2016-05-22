@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\PriceConverter.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Message\UpdateListMessage.cs" />
     <Compile Include="Services\CustomerDataService.cs" />

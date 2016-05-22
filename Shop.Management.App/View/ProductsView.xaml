@@ -20,7 +20,7 @@
                                     DisplayMemberBinding="{Binding Name}"
                                     Header="Name" />
                     <GridViewColumn Width="Auto"
-                                    DisplayMemberBinding="{Binding Price}"
+                                    DisplayMemberBinding="{Binding Price,Converter={StaticResource LocalPriceConverter}}"
                                     Header="Price" />
                     <GridViewColumn Width="Auto"
                                     DisplayMemberBinding="{Binding InStock}"

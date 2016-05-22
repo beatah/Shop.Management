@@ -90,7 +90,7 @@
                                       AutoGenerateColumns="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Date" Binding="{Binding OrderDate}" />
-                                    <DataGridTextColumn Header="Price" Binding="{Binding TotalPrice}" />
+                                    <DataGridTextColumn Header="Price" Binding="{Binding TotalPrice,Converter={StaticResource LocalPriceConverter}}" />
                                 </DataGrid.Columns>
                                 <DataGrid.RowDetailsTemplate>
                                     <DataTemplate>
@@ -99,7 +99,7 @@
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Product" Binding="{Binding Product.Name}" />
                                                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
-                                                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                                                <DataGridTextColumn Header="Price" Binding="{Binding Price,Converter={StaticResource LocalPriceConverter}}" />
                                             </DataGrid.Columns>
                                         </DataGrid>
                                     </DataTemplate>

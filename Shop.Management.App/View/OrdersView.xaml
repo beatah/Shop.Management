@@ -23,7 +23,7 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Customer" Binding="{Binding Customer.FullName}" />
                                 <DataGridTextColumn Header="Date" Binding="{Binding OrderDate}" />
-                                <DataGridTextColumn Header="Price" Binding="{Binding TotalPrice}" />
+                                <DataGridTextColumn Header="Price" Binding="{Binding TotalPrice,Converter={StaticResource LocalPriceConverter}}" />
                                 <DataGridTextColumn Header="Employee" Binding="{Binding Employee.FullName}" />
                             </DataGrid.Columns>
                             <DataGrid.RowDetailsTemplate>
@@ -33,7 +33,7 @@
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Product" Binding="{Binding Product.Name}" />
                                             <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
-                                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                                            <DataGridTextColumn Header="Price" Binding="{Binding Price,Converter={StaticResource LocalPriceConverter}}" />
                                         </DataGrid.Columns>
                                     </DataGrid>
                                 </DataTemplate>
