@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Shop.Management.App.Message;
 using Shop.Management.App.Services;
@@ -63,9 +64,11 @@ namespace Shop.Management.App.ViewModel
 
         private void Login(object obj)
         {
+            var passwordBox = obj as PasswordBox;
+            _password = passwordBox.Password;
             var accounts = new List<Employee>(_employees)
                 .Where(e => e.Username == _username)
-                .Where(e => e.Password == Password);
+                .Where(e => e.Password == _password);
 
             if (accounts.Count() == 1)
             {
@@ -81,7 +84,8 @@ namespace Shop.Management.App.ViewModel
 
         private bool CanLogin(object obj)
         {
-            return !string.IsNullOrEmpty(_username) && !string.IsNullOrEmpty(_password);
+            var passwordBox = obj as PasswordBox;
+            return !string.IsNullOrEmpty(_username) &&!string.IsNullOrEmpty(passwordBox.Password);
         }
     }
 }

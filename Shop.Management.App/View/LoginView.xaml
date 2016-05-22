@@ -26,10 +26,11 @@
             <TextBox Grid.Column="1" Margin="3,3,30,3"
                      Text="{Binding Username, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
             <Label Content="Password" Grid.Row="1" HorizontalAlignment="Right" />
-            <TextBox Name="PbPass" Grid.Row="1" Grid.Column="1" Margin="3,3,30,3"
-                     Text="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+            <!--<TextBox Name="PbPass" Grid.Row="1" Grid.Column="1" Margin="3,3,30,3"
+                     Text="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />-->
+            <PasswordBox Name="PbPassword" Grid.Row="1" Grid.Column="1" Margin="3,3,30,3"/>
         </Grid>
         <Button Grid.Row="1" HorizontalAlignment="Center" Content="Sign in" Margin="10" Padding="15,5"
-                Command="{Binding LoginCommand}" />
+                Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=PbPassword}"/>
     </Grid>
 </controls:MetroWindow>

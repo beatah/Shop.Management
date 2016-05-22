@@ -63,7 +63,7 @@
                 <Label Grid.Row="3" Grid.Column="1" Content="{Binding SelectedEmployee.Phone, Mode=OneWay}" />
                 <Label Grid.Row="4" Grid.Column="1" Content="{Binding SelectedEmployee.HireDate, Mode=OneWay}" />
                 <Label Grid.Row="5" Grid.Column="1" Content="{Binding SelectedEmployee.NumberOfOrders, Mode=OneWay}" />
-                <Label Grid.Row="6" Grid.Column="1" Content="{Binding SelectedEmployee.Commision, Mode=OneWay}" />
+                <Label Grid.Row="6" Grid.Column="1" Content="{Binding SelectedEmployee.Commision, Mode=OneWay,Converter={StaticResource LocalPriceConverter}}" />
             </Grid>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
